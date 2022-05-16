@@ -1,0 +1,19 @@
+/scene start "Circle Pan"
+	/setup
+		require ability flight
+		require mod "net.bdew.wurm.timelock.TimeLockMod"
+
+		tell console "timelock 21:30"
+		tell console "flight"
+		tell server "#goto 1024 1024"
+		wait 3s
+		option hud off
+		option speed 100%
+
+	/camera rotate for 0s
+		target 0 0
+	/camera rotate for 14s
+		waypoint 180 0
+		target 360 0
+		use smoothing quad inout
+/scene end

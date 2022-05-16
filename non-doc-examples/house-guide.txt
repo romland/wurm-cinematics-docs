@@ -1,0 +1,89 @@
+#
+# Scene templates are used by the in-game "Scene designer". That is when you use "new script, 
+# "add waypoint", "add target", etc.
+#
+# You can modify this template to your heart's content and it will be used by any scene you
+# create from then on.
+#
+# The software will insert waypoints (etc) at e.g. $$CAMERA_MOVE_...
+# There is no magic here, it's just a simple substitution of text done when saving a new script.
+#
+/scene start "Script 1528465589452"
+	/setup
+		require ability flight											# Will not start scene if you cannot fly (i.e. you are not GM)
+		require mod "net.bdew.wurm.timelock.TimeLockMod"				# Will not start scene if this mod is not installed
+
+		tell console "timelock 21:30"									# Lock time at 08:30 (Wurm time)
+		tell console "flight"											# Enable 'flight' for this scene
+#		tell server "This is take 49152! 3 -- 2 -- 1 ... *clap*"		# Simply 'says' this in Local
+		tell server "#goto 950 659"
+		wait 3s															# Wait for 1 second
+		option hud off													# Hide heads up display
+		option speed 100%
+		
+#	/camera focus for 20ms
+#		target 950 657 100
+
+#	/camera move for 14s
+#		waypoint 950 657 200
+#		waypoint 952 659 400
+#		waypoint 950 661 400
+#		waypoint 948 659 200
+#		target 950 657 100
+#		use smoothing quad inout
+#		use pathing catmull-rom
+
+#	/camera move for 14s
+#		waypoint +0 +0 +420
+#		target +0 +0 +0
+		
+	/camera rotate for 0s
+		target 0 0
+	/camera rotate for 14s
+		waypoint 180 0
+		target 360 0
+		use smoothing quad inout
+#		use pathing linear
+	
+/scene end
+
+/scene start
+	/setup
+		option hud off
+	/camera move for 10s
+		target +0 -7 +0
+/scene end
+
+/scene start
+	/setup
+		option hud off
+	/camera move for 4s
+		target -3 +0 +0
+/scene end
+
+/scene start
+	/setup
+		option hud off
+	/camera rotate for 0s
+		target 0 0
+	/camera rotate for 14s
+		target 180 0
+		use smoothing quad inout
+#		use pathing linear
+/scene end
+
+/scene start
+	/setup
+		option hud off
+	/camera rotate for 3s
+		target 110 0
+	/camera move for 4s
+		target +0 +5 +0
+/scene end
+
+/scene start
+	/setup
+		option hud off
+	/camera move for 4s
+		target 950 659 100
+/scene end

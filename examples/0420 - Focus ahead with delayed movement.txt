@@ -1,0 +1,50 @@
+#
+# TODO: Write documentation for this
+#
+# to have a "lagging" look, set the 'wait' on the focus instead
+#
+#
+/scene start "Face ahead before moving"
+	/setup
+		require ability flight
+		require mod "net.bdew.wurm.timelock.TimeLockMod"
+
+		tell console "timelock 08:30"
+		tell console "flight"
+		tell server "#goto 918 641"
+		wait 3s
+		tell server "Starting scene..."
+		option hud off
+
+	/camera focus for 190s
+		waypoint 918 641 7
+		waypoint 920 641 349
+		waypoint 930 652 288
+		waypoint 945 665 495
+		waypoint 988 656 237
+		waypoint 1018 643 500
+		waypoint 991 600 521
+		waypoint 964 604 358
+		waypoint 937 616 241
+		waypoint 923 636 156
+		target 923 636 156
+		use smoothing quad inout
+		use pathing catmull-rom
+		
+	/camera move for 190s
+		wait 1s
+		waypoint 918 641 7
+		waypoint 920 641 349
+		waypoint 930 652 288
+		waypoint 945 665 495
+		waypoint 988 656 237
+		waypoint 1018 643 500
+		waypoint 991 600 521
+		waypoint 964 604 358
+		waypoint 937 616 241
+		waypoint 923 636 156
+		target 923 636 156
+		use smoothing quad inout
+		use pathing catmull-rom
+
+/scene end

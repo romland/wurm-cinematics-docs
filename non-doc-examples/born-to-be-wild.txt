@@ -1,0 +1,107 @@
+#
+# Born To Be Wild - Steppenwolf
+#	Duration: 3:32
+#	BPM: 146 (beat every 0.41095 seconds, or every 411 ms)
+#
+# Get your motor runnin'
+# Head out on the highway
+# Lookin' for adventure
+# And whatever comes our way
+# Yeah Darlin' go make it happen
+# Take the world in a love embrace
+# Fire all of your guns at once
+# And explode into space
+#
+# I like smoke and lightning
+# Heavy metal thunder
+# Racin' with the wind
+# And the feelin' that I'm under
+# Yeah Darlin' go make it happen
+# Take the world in a love embrace
+# Fire all of your guns at once
+# And explode into space
+#
+# Like a true nature's child
+# We were born, born to be wild
+# We can climb so high
+# I never wanna die
+#
+# Born to be wild
+# Born to be wild
+#
+# Get your motor runnin'
+# Head out on the highway
+# Lookin' for adventure
+# And whatever comes our way
+# Yeah Darlin' go make it happen
+# Take the world in a love embrace
+# Fire all of your guns at once
+# And explode into space
+#
+# Like a true nature's child
+# We were born, born to be wild
+# We can climb so high
+# I never wanna die
+#
+# Born to be wild
+# Born to be wild
+#
+/scene start "Born to be wild"
+	/setup
+		option benchmarking on
+		
+		#
+		# Key moments:
+		# 7500ms	Engine gone
+		#
+		#
+		#
+		audio play "steppenwolf_born_to_be_wild.mp3" from 2500ms
+		option fade on
+		wait 1s
+		tell console "flight"
+		tell server "#goto 535 838"
+		tell console "timelock 17:30"
+		wait 4s
+		option hud off
+		option fade off
+
+	# Focus far to the north (to see door)
+	/camera focus for 0s
+		target +0 -300 +0
+
+	# Exit door
+	/camera move for 5s
+		wait 1s
+		target +0 -1 +0
+
+	# Start focusing on the cart before we have stopped moving.
+	# The big sweep (quad move) happens in sync to base starting.
+	/camera focus for 3s
+		wait 1s
+		target 532 837 70
+
+	# After focus above is done, keep focus on the cart
+	/camera focus for 37s
+		wait 4s
+		target 532 837 50
+		
+	# Do a camera swoop around the cart for 10 seconds (while keeping the focus from above)
+	/camera move for 35s
+		wait 6s
+		waypoint 533 835 80
+		waypoint 531 835 80
+		waypoint 530 838 80
+		waypoint 532 839 80
+		target 533 837 55
+	
+/scene end
+
+
+#
+# This is just here to keep the music going for a little while after scene we're done
+#
+/scene start "Waiter"
+	/setup
+		wait 30s
+/scene end
